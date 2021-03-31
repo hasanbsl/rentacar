@@ -1,0 +1,26 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Marka</th>
+        <th>Color</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Şirket</th>
+        <th>Kiralama Tarihi</th>
+        <th>Dönüş Tarihi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rental of rentals" [class]="returnDateCheck(rental)">
+        <td>{{ rental.rentalId }}</td>
+        <td>{{ rental.brandName }}</td>
+        <td>{{ rental.colorName }}</td>
+        <td>{{ rental.firstName }}</td>
+        <td>{{ rental.lastName }}</td>
+        <td>{{ rental.companyName }}</td>
+        <td>{{ rental.rentDate | date: 'M/d/yy, h:mm a'}}</td>
+        <td>{{ rental.returnDate | date: 'M/d/yy, h:mm a' }}</td>
+      </tr>
+    </tbody>
+  </table>

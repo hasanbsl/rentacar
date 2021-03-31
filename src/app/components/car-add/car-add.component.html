@@ -1,0 +1,51 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><h5 class="title"> Araç ekle</h5></div>
+            <div class="card-body">
+                <form [formGroup]="carAddForm">
+                    <div class="mb-3">
+                        <label for="brandId">Marka</label>
+                        <div class="form-group">  
+                            <input type="number" id="brandId" formControlName="brandId" class="form-control" placeholder="Marka Id"/>
+                        </div>
+                    </div>
+                   
+                    <div class="mb-3">
+                        <label for="colorId">Renk</label>
+                    <div class="form-group">
+                        <input type="number" id="colorId" formControlName="colorId" class="form-control" placeholder="Renk"/>
+                    </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="modelYear">Model</label>
+                    <div class="form-group">
+                        <input type="datetime-local" id="modelYear" formControlName="modelYear" class="form-control" placeholder="Model"/>
+                    </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="dailyPrice">Günlük Kiralama Ücreti</label>
+                    <div class="form-group">
+                        <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control" placeholder="Fiyatı"/>
+                    </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description">Açıklama</label>
+                        <div class="form-group">  
+                            <input type="text" id="description" formControlName="description" class="form-control" placeholder="Açıklama"/>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+            <div class="card-footer">
+                <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-fill btn-success" (click)="add()">Ekle</button>
+           
+        </div>
+            </div>
+        </div>
+    </div>
+</div>

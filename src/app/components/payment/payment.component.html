@@ -1,0 +1,88 @@
+<div class="d-grid gap-2 col-8 mx-auto" style="border: 1px solid black;">
+  <div>
+   <label> Kiralama Tarihi Seçiniz</label>
+   <input class="form-control"  type="datetime-local"  min="{{ getRentMinDate() }}" value="{{getRentMinDate()}}"
+     [(ngModel)]="rentDate" />
+  </div>
+   <div>
+     <label> Dönüş Tarihi Seçiniz</label>
+   <input class="form-control"  type="datetime-local"  min="{{ getReturnMinDate() }}" value="{{getReturnMinDate()}}"
+     [(ngModel)]="returnDate" />
+   </div>
+   <div>
+     <button type="button" class="btn btn-primary" (click)="rentacar()"  data-bs-toggle="modal" data-bs-target="#exampleModal">     
+        Kirala  
+     </button>
+   </div>
+ </div>
+ 
+ 
+ <!-- Modal -->
+
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+     <div class="modal-content"><h5>Ödeme Detayları</h5>
+       <div class="modal-header">
+        
+            <table class="table table-striped">
+           
+              <thead>
+                <tr>
+                  <th>Toplam Ücret</th>
+                  <th>Toplam Gün</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr  [(ngModel)]="amountOfPayment" [(ngModel)]="totalDays">
+                  <td>{{amountOfPayment |currency:'₺'}}</td>
+                  <td> {{totalDays}}</td>
+                </tr>
+              </tbody>
+              </table>
+          
+         
+         
+       
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
+       <div class="modal-body">
+        <div class="mb-3">
+          <label for="Ad">Kart Sahibinin Adı Soyadı</label>
+          <div class="form-group">  
+              <input type="text" id="Ad" formControlName="Ad" class="form-control" placeholder="Ad Soyad"/>
+          </div>
+      </div>
+     
+      <div class="mb-3">
+          <label for="Numara">Kart Numarası</label>
+      <div class="form-group">
+          <input type="number" id="numara" formControlName="numara" class="form-control" placeholder="Kart Numarası"/>
+      </div>
+      </div>
+      
+      <div class="mb-3">
+          <label for="tarih">Son Kullanma Tarihi</label>
+      <div class="form-group">
+          <input type="number" id="tarih" formControlName="tarih" class="form-control" placeholder="Son kullanma Tarihi"/>
+      </div>
+      </div>
+      
+      <div class="mb-3">
+          <label for="unitPrice">cvv</label>
+      <div class="form-group">
+          <input type="number" id="cvv" formControlName="cvv" class="form-control" placeholder="cvv"/>
+      </div>
+      </div>
+        
+       </div>
+         
+      
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" *ngIf="datecheck==false" data-bs-dismiss="modal">Close</button>
+         <button type="button" class="btn btn-primary" *ngIf="datecheck==true" data-bs-dismiss="modal" (click)="payment()">Öde</button>
+       </div>
+     </div>
+   </div>
+ 
+
+</div>

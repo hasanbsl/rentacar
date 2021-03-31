@@ -1,0 +1,19 @@
+<table class="table">
+<thead>
+    <tr>
+        <th>renkler</th>
+    </tr>
+  </thead>
+  <div class="col-mb-3">
+  <input type="text" [(ngModel)]="colorFilterText" class="form-control" id="colorFilterText" placeholder="renk ara">
+</div>
+  <ul class="list-group">
+    <li (click)="setCurrentColor(defaultColor)" routerLink="/cars" [class]="getCurrentColorClass(defaultColor)">
+      Hepsi
+    </li>
+      <li (clink)="setCurrentColor(color)"
+      routerLink="/cars/color/{{color.colorId}}"
+       *ngFor="let color of colors |colorFilterPipe:colorFilterText" [class]="getCurrentColorClass(color)" >{{color.colorName}}</li>
+      
+    </ul>
+  </table>

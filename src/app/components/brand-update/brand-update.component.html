@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form [formGroup]="brandUpdateForm" >
+                <div class="form-group">
+                    <label for="brandName">Araba Markası</label>
+                    <input formControlName="brandName" type="text" name="brandName" class="form-control" >
+                </div>
+                <div class="form-group">
+                    <label for="brandId"> Marka Id</label>
+                    <input formControlName="brandId" type="number" name="brandId" class="form-control" >
+                </div>
+                <button 
+                (click)="updateBrand()"
+                class="btn btn-outline-primary">Güncelle</button>
+            </form>
+        </div>
+    </div>
+</div>

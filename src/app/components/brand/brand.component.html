@@ -1,0 +1,17 @@
+<thead>
+    <tr>
+        <th>markalar</th>
+    </tr>
+  </thead>
+  <div class="col-mb-3">
+    <input type="text" [(ngModel)]="brandFilterText" class="form-control" id="brandFilterText" placeholder="Marka ara">
+  </div>
+  <ul class="list-group">
+    <li (click)="setCurrentBrand(defaultBrand)" routerLink="/cars" [class]="getCurrentBrandClass(defaultBrand)">
+      Hepsi
+    </li>
+      <li (click)="setCurrentBrand(brand)" 
+      routerLink="/cars/brand/{{brand.brandId}}" *ngFor="let brand of brands |brandFilterPipe:brandFilterText" [class]="getCurrentBrandClass(brand)">{{brand.brandName}}</li>    
+    </ul>
+    
+  

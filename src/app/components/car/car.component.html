@@ -1,0 +1,52 @@
+<div *ngIf="dataLoaded==false" class="d-flex align-items-center">
+    <strong>Loading...</strong>
+    <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+  </div>
+   <div class="row">
+    
+  <div class="col">
+    <label for="carFilterText" class="form-label">Araç ara</label>
+    <input type="text" [(ngModel)]="carFilterText" class="form-control" id="carFilterText" placeholder="arama ifadesi giriniz">
+  
+  <div *ngIf="carFilterText.length>2" class="alert alert-success">
+   {{carFilterText}} aradınız
+   
+  </div>
+ 
+  <app-car-filter></app-car-filter>
+  </div>
+</div>
+  <table *ngIf="dataLoaded != false" class="table">
+    <thead>
+      <h5 class="card-title">Arabalar</h5>
+    </thead>
+    <tbody>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div  *ngFor="let car of cars |carFilterPipe:carFilterText" class="col"  [class]="getImageClass(car.carId)"   >
+        <div  class="card">
+          <img 
+            src= "{{imagePath1}}/{{car.imagePath}}"
+            class="img-thumbnail"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ car.brandName }}</h5>
+            <p class="card-text">
+              <li class="list-group-item list-group-item-primary">
+                Renk: {{ car.colorName }}
+              </li>
+              <li class="list-group-item list-group-item-primary">
+                Model: {{ car.modelYear }}
+              </li>
+              <li class="list-group-item list-group-item-primary">
+                Günlük fiyat: {{ car.dailyPrice |currency:'₺'}}
+              </li>
+            </p>
+            <button type="button" class="btn btn-success" routerLink="car-image/{{car.carId}}">Detay</button>
+            <button type="button" class="btn btn-info" routerLink="/cars/update/{{car.carId}}">Güncelle</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </tbody>
+  </table>
