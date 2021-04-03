@@ -19,4 +19,12 @@ export class ColorService {
 add(color:Color):Observable<ResponseModel>{
   return this.httpClient.post<ResponseModel>(this.appUrl+"add",color)
 }
+
+updateColor(color:Color): Observable<ResponseModel>{
+
+  let newApiUrl = this.appUrl + "update";
+
+  return this.httpClient.post<ResponseModel>(newApiUrl, color);
+}
+
 }
