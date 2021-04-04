@@ -14,4 +14,5 @@ appUrl="https://localhost:44313/api/customers/getcustomerdetails"
   getCustomer():Observable<ListResponseModel<Customer>>{
     return this.httpClient.get<ListResponseModel<Customer>>(this.appUrl)
   }
+ 
 }

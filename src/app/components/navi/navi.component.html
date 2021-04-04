@@ -28,9 +28,16 @@
           </li>
         </ul>
         <form class="d-flex">
-        
+        <div *ngIf="loginCheck==false">
           <button routerLink="login" class="btn btn-outline-success" type="submit">Giriş</button>
-          <button class="btn btn-outline-success" type="submit">Üye Ol</button>
+          <button routerLink="register" class="btn btn-outline-success" type="submit">Üye Ol</button>
+        </div>
+        <div *ngIf="loginCheck==false">
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+          </select>
+          
+        </div>
         </form>
       </div>
     </div>
