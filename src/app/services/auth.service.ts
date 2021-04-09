@@ -5,7 +5,7 @@ import { LoginModel } from '../models/loginModel';
 import { ResponseModel } from '../models/ResponseModel';
 import { TokenModel } from '../models/tokenModel';
 import { User } from '../models/user';
-import { SingleResponseModel } from './singleResponseModel';
+import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class AuthService {
   constructor(private httpClient:HttpClient) { }
 
   login(loginModel:LoginModel){
-    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"login",loginModel);
+    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"/login",loginModel);
   }
 
   isAuthenticated(){
@@ -29,6 +29,6 @@ export class AuthService {
   }
 
   register(user:User):Observable<ResponseModel>{
-    return this.httpClient.post<ResponseModel>(this.apiUrl+"register",user)
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"/register",user)
   }
 }

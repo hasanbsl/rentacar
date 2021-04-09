@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-navi',
@@ -8,9 +11,21 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NaviComponent implements OnInit {
   loginCheck=false;
-  constructor(private authService:AuthService) { }
+  user:User;
+  constructor(private authService:AuthService,
+    private userService:UserService,
+    private activatedRoute:ActivatedRoute,) { }
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(params=>{
+      if (params["email"]) {
+       
+        this.getUserMail(params["email"])
+        
+      }
+    })
+      
+    
     this.chech();
   }
 
@@ -19,6 +34,11 @@ export class NaviComponent implements OnInit {
       this.loginCheck=true;
     }
   }
- 
+
+  getUserMail(email:string){
+this.userService.getUserMail(email).subscribe((reponse)=>{
+this.user=reponse.data
+})
+  }
 
 }
