@@ -2,7 +2,7 @@
     <strong>Loading...</strong>
     <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
   </div>
-   <div class="row">
+   <div class="row" *ngIf="dataLoaded != false">
     
   <div class="col">
     <label for="carFilterText" class="form-label">Araç ara</label>
@@ -15,6 +15,7 @@
  
   <app-car-filter></app-car-filter>
   </div>
+  
 </div>
   <table *ngIf="dataLoaded != false" class="table">
     <thead>

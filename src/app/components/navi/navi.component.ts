@@ -17,28 +17,9 @@ export class NaviComponent implements OnInit {
     private activatedRoute:ActivatedRoute,) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params=>{
-      if (params["email"]) {
-       
-        this.getUserMail(params["email"])
-        
-      }
-    })
-      
-    
-    this.chech();
   }
 
-  chech(){
-    if (this.authService.isAuthenticated()){
-      this.loginCheck=true;
-    }
-  }
-
-  getUserMail(email:string){
-this.userService.getUserMail(email).subscribe((reponse)=>{
-this.user=reponse.data
-})
-  }
+  
+  
 
 }

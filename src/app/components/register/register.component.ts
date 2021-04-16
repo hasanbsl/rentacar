@@ -31,9 +31,9 @@ export class RegisterComponent implements OnInit {
    register(){
      if(this.registerForm.valid){
        console.log(this.registerForm.value)
-       let userModel=Object.assign({},this.registerForm.value)
+       let registerModel=Object.assign({},this.registerForm.value)
 
-       this.authService.register(userModel).subscribe(response=>{
+       this.authService.register(registerModel).subscribe(response=>{
         this.toastrService.success(response.message,"Üye Olundu")
       },responseError=>{
         if (responseError.error.ValidationErrors.length>0) {

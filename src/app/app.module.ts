@@ -31,6 +31,8 @@ import { ColorUpdateComponent } from './components/color-update/color-update.com
 import { LoginComponent } from './components/login/login.component'
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegisterComponent } from './components/register/register.component';
+import { NaviAuthComponent } from './components/navi-auth/navi-auth.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { RegisterComponent } from './components/register/register.component';
     BrandUpdateComponent,
     ColorUpdateComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    NaviAuthComponent,
+    ProfileComponent
   
   ],
   imports: [
