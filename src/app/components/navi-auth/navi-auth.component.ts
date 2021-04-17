@@ -21,8 +21,8 @@ export class NaviAuthComponent implements OnInit {
     this.authStatus=this.authService.isAuthenticated();
     if (this.authStatus)
     {
-      this.fullName=(this.localStorageService.get("fullName") !==null)?this.localStorageService.get("fullName") : "Boş"; 
-      //this.fullName=(localStorage.getItem("token") !==null)? localStorage.getItem("token") : "Boş"; 
+      
+      this.fullName=(localStorage.getItem("fullName") !==null)? localStorage.getItem("fullName") : " "; 
      
     }
   }

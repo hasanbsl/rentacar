@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import { BrandListComponent } from './components/brand-list/brand-list.component';
 import { BrandUpdateComponent } from './components/brand-update/brand-update.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { CarImageComponent } from './components/car-image/car-image.component';
@@ -30,7 +31,9 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
   {path:"brands/add",component:BrandAddComponent,canActivate:[LoginGuard]},
   {path:"colors/add",component:ColorAddComponent,canActivate:[LoginGuard]},
-  {path:"profile",component:ProfileComponent}
+  {path:"profile",component:ProfileComponent},
+
+  {path:"brand/list",component:BrandListComponent}
  
   
 

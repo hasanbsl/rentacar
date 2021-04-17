@@ -3,8 +3,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { CarRental } from 'src/app/models/car-rental';
+import { Customer } from 'src/app/models/customer';
 import { Rental } from 'src/app/models/rental';
 import { CarService } from 'src/app/services/car.service';
+import { CustomerService } from 'src/app/services/customer.service';
 import { PaymentService } from 'src/app/services/payment.service';
 import { RentalService } from 'src/app/services/rental.service';
 
@@ -14,7 +16,8 @@ import { RentalService } from 'src/app/services/rental.service';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
-
+  customers:Customer[];
+  customerId:Number;
   rentcar:CarRental
  returnDate:Date
  rentDate:Date
@@ -33,10 +36,20 @@ export class PaymentComponent implements OnInit {
     private router:Router,
     private toastrService: ToastrService,
      private paymentService:PaymentService,
-     private rentalService:RentalService
+     private rentalService:RentalService,
+     private customerService:CustomerService
     ) { }
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+      this.getCustomer();
+    }
+
+    getCustomer(){
+      this.customerService.getCustomer().subscribe(response => {
+        this.customers = response.data;
+        //this.dataLoaded = true;
+      })
+    }
 
     getRentMinDate() {
       var date = new Date();
@@ -57,7 +70,7 @@ export class PaymentComponent implements OnInit {
           new Date(this.returnDate) > new Date(Date.now())
         ) {
           this.toastrService.success("Ödeme Sayfasına Yönlendiriliyorsunuz")
-          console.log('Ödeme yönlendirliyirosunuzagljkahgjka');
+          console.log('Ödeme yönlendirliyirosunuza');
           this.datecheck = true;
           //toplam miktar ödeme işlemi
           var returnD = new Date(this.returnDate);
@@ -88,7 +101,7 @@ export class PaymentComponent implements OnInit {
           this.datecheck = true;
         } else {
           this.toastrService.error("Bu Tarihler Arasında Kiralayamazsınız")
-          console.log('fuck');
+         
         }
      
       }
@@ -101,13 +114,14 @@ export class PaymentComponent implements OnInit {
         this.toastrService.success('Kiralama işlemi tamamlandı.');
         console.log('Kiralandı..');
       }
+      
     }
   
     rentalcar() {
   
       this.rentcar = {
         carId: parseInt(this.data.toString()),
-        customerId: 1,
+        customerId: parseInt(this.customerId.toString()),
         rentDate: new Date(this.rentDate),
         returnDate: new Date(this.returnDate),
       };

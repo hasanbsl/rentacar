@@ -30,12 +30,19 @@
                 <tr>
                   <th>Toplam Ücret</th>
                   <th>Toplam Gün</th>
+                  <th>Müşteri</th>
                 </tr>
               </thead>
               <tbody>
-                <tr  [(ngModel)]="amountOfPayment" [(ngModel)]="totalDays">
+                <tr  [(ngModel)]="amountOfPayment" [(ngModel)]="totalDays" [(ngModel)]="customerId">
                   <td>{{amountOfPayment |currency:'₺'}}</td>
                   <td> {{totalDays}}</td>
+                  <option [value]="customer.customerId"
+                  *ngFor="let customer of customers"> 
+                  {{ customer.firstName }} {{ customer.lastName }} |
+                  {{ customer.companyName }}
+                
+              </option>
                 </tr>
               </tbody>
               </table>

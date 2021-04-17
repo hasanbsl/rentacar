@@ -33,6 +33,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegisterComponent } from './components/register/register.component';
 import { NaviAuthComponent } from './components/navi-auth/navi-auth.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { CarListComponent } from './components/car-list/car-list.component';
+import { BrandListComponent } from './components/brand-list/brand-list.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     LoginComponent,
     RegisterComponent,
     NaviAuthComponent,
-    ProfileComponent
+    ProfileComponent,
+    CarListComponent,
+    BrandListComponent
   
   ],
   imports: [
