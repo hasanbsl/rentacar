@@ -35,6 +35,7 @@ import { NaviAuthComponent } from './components/navi-auth/navi-auth.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CarListComponent } from './components/car-list/car-list.component';
 import { BrandListComponent } from './components/brand-list/brand-list.component';
+import { ColorListComponent } from './components/color-list/color-list.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { BrandListComponent } from './components/brand-list/brand-list.component
     NaviAuthComponent,
     ProfileComponent,
     CarListComponent,
-    BrandListComponent
+    BrandListComponent,
+    ColorListComponent
   
   ],
   imports: [

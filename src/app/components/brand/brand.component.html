@@ -1,8 +1,12 @@
-<thead>
-    <tr>
+<div *ngIf="dataLoaded==false" class="d-flex align-items-center">
+  <strong>Loading...</strong>
+  <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+</div>
+<thead *ngIf="dataLoaded != false">
+    <tr >
         <th>markalar</th>
     </tr>
-  </thead>
+  
   <div class="col-mb-3">
     <input type="text" [(ngModel)]="brandFilterText" class="form-control" id="brandFilterText" placeholder="Marka ara">
   </div>
@@ -13,5 +17,6 @@
       <li (click)="setCurrentBrand(brand)" 
       routerLink="/cars/brand/{{brand.brandId}}" *ngFor="let brand of brands |brandFilterPipe:brandFilterText" [class]="getCurrentBrandClass(brand)">{{brand.brandName}}</li>    
     </ul>
+  </thead>
     
   

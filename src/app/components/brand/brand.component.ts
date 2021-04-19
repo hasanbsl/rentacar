@@ -12,6 +12,7 @@ brands:Brand[]=[]
 currentBrand:Brand
 defaultBrand: Brand = { brandId: -1, brandName: 'default' };
 brandFilterText=""
+dataLoaded=false
 
   constructor(private brandService:BrandService) { }
 
@@ -22,6 +23,7 @@ brandFilterText=""
   getBrand(){
     this.brandService.getCategorys().subscribe(response=>{
       this.brands=response.data
+      this.dataLoaded=true;
       
     })
 

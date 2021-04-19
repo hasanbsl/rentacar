@@ -8,6 +8,8 @@ import { CarImageComponent } from './components/car-image/car-image.component';
 import { CarUpdateComponent } from './components/car-update/car-update.component';
 import { CarComponent } from './components/car/car.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
+import { ColorListComponent } from './components/color-list/color-list.component';
+import { ColorUpdateComponent } from './components/color-update/color-update.component';
 import { LoginComponent } from './components/login/login.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -31,9 +33,11 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
   {path:"brands/add",component:BrandAddComponent,canActivate:[LoginGuard]},
   {path:"colors/add",component:ColorAddComponent,canActivate:[LoginGuard]},
+  {path:"colors/update/:colorId", component:ColorUpdateComponent},
   {path:"profile",component:ProfileComponent},
 
-  {path:"brand/list",component:BrandListComponent}
+  {path:"brand/list",component:BrandListComponent},
+  {path:"color/list",component:ColorListComponent}
  
   
 

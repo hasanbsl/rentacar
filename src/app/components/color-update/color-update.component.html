@@ -1,20 +1,26 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <form [formGroup]="colorUpdateForm" >
-                <div class="form-group">
-                    <label for="colorName">Araba Rengi</label>
-                    <input formControlName="colorName" type="text" name="colorName" class="form-control" >
-                </div>
-                <div class="form-group">
-                    <label for="colorId"> Renk Id</label>
-                    <input formControlName="colorId" type="number" name="colorId" class="form-control" >
-                </div>
-                <button 
-                (click)=" updateColor()"
-                class="btn btn-outline-primary">Güncelle</button>
-            </form>
+
+<div class="content mt-2">
+    <div class="col-md-12" *ngIf="dataLoaded == true">
+      <div class="card">
+        <div class="card-header">Renk Düzenle </div>
+        <div class="card-body">
+          <form [formGroup]=" colorUpdateForm">
+            <div class="form-group">
+                <label for="colorName">Renk Adı</label>
+              <input
+                class="form-control"
+                type="text"
+                id="colorName"
+                formControlName="colorName"
+                placeholder="{{color.colorName}}"               
+              />
+            </div>
+          </form>
         </div>
+        <div class="card-footer">
+            <button class="btn btn-fill btn-success" (click)="updateColor()">Güncelle</button>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 

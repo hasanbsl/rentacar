@@ -1,9 +1,13 @@
-<table class="table">
-<thead>
+<div *ngIf="dataLoaded==false" class="d-flex align-items-center">
+  <strong>Loading...</strong>
+  <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+</div>
+
+<thead *ngIf="dataLoaded != false">
     <tr>
         <th>renkler</th>
     </tr>
-  </thead>
+  
   <div class="col-mb-3">
   <input type="text" [(ngModel)]="colorFilterText" class="form-control" id="colorFilterText" placeholder="renk ara">
 </div>
@@ -16,4 +20,5 @@
        *ngFor="let color of colors |colorFilterPipe:colorFilterText" [class]="getCurrentColorClass(color)" >{{color.colorName}}</li>
       
     </ul>
-  </table>
+  </thead>
+  

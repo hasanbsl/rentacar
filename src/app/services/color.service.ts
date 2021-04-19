@@ -5,6 +5,7 @@ import { Color } from '../models/color';
 
 import { ListResponseModel } from '../models/listResponseModel';
 import { ResponseModel } from '../models/ResponseModel';
+import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,10 @@ updateColor(color:Color): Observable<ResponseModel>{
   let newApiUrl = this.appUrl + "update";
 
   return this.httpClient.post<ResponseModel>(newApiUrl, color);
+}
+
+getByColorId(colorId:number):Observable<SingleResponseModel<Color>>{
+  return this.httpClient.get<SingleResponseModel<Color>>(this.appUrl+"getbyid?colorId="+colorId)
 }
 
 }

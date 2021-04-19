@@ -1,6 +1,6 @@
 <div class="content">
     <div class="card">
-      <div class="card-header">Marka Listesi</div>
+      <div class="card-header">Renk Listesi</div>
       <div class="card-body">
           <table class="table table-responsive table-bordered table-hover">
               <thead>
@@ -11,10 +11,10 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr *ngFor="let brand of brands">
-                      <td>{{brand.brandId}}</td>
-                      <td>{{brand.brandName}}</td>
-                      <td> <button routerLink="/brands/update/{{brand.brandId}}"  class="btn btn-warning">Düzenle</button>
+                  <tr *ngFor="let color of colors">
+                      <td>{{color.colorId}}</td>
+                      <td>{{color.colorName}}</td>
+                      <td> <button routerLink="/colors/update/{{color.colorId}}"  class="btn btn-warning">Düzenle</button>
                       </td>
                      
                   </tr>
@@ -23,3 +23,4 @@
       </div>
     </div>
   </div>
+
